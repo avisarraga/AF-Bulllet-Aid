@@ -1,2 +1,2 @@
 # AF-Bulllet-Aid
-for bullet writing. 
+project for bullet writing. 
