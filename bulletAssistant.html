@@ -17,6 +17,9 @@
     }
     .card {
       margin-top: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
@@ -26,10 +29,10 @@
     <h1>Air Force Bullet Generator (MPA/Narrative)</h1>
   </div>
 
-  <div class="container">
+  <main class="container">
     <div class="card p-4">
       <label for="inputText" class="form-label"><strong>Enter Plain Description:</strong></label>
-      <textarea id="inputText" class="form-control" rows="5" placeholder="E.g. Airman led a team to fix aircraft..."></textarea>
+      <textarea id="inputText" class="form-control" rows="5" placeholder="E.g. Airman led a team to fix aircraft, improved sortie rate..."></textarea>
 
       <button class="btn btn-primary mt-3" onclick="generateBullet()">Generate Bullet</button>
 
@@ -40,23 +43,24 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 
   <script>
     function generateBullet() {
-      const input = document.getElementById("inputText").value;
+      let input = document.getElementById("inputText").value.trim();
 
-      // Dummy AI simulation – replace with GPT call
+      if (!input) {
+        document.getElementById("outputBullet").innerText = "Please enter a description to generate a bullet.";
+        return;
+      }
+
       const bullet = simulateBullet(input);
 
       document.getElementById("outputBullet").innerText = bullet;
     }
 
     function simulateBullet(text) {
-      // Simulate an Air Force-style bullet (action-impact-result)
-      if (!text.trim()) return "Please enter a description to generate a bullet.";
-
-      return `- ${text.charAt(0).toUpperCase() + text.slice(1).trim()} -- ensured mission readiness & exceeded operational goals`;
+      return `- ${text.charAt(0).toUpperCase() + text.slice(1)} -- ensured mission readiness & exceeded operational goals.`;
     }
   </script>
 
