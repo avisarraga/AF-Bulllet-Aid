@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Air Force Bullet Narrative Generator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <style>
+    body {
+      background-color: #f4f6f9;
+    }
+    .header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .card {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Air Force Bullet Generator (MPA/Narrative)</h1>
+  </div>
+
+  <div class="container">
+    <div class="card p-4">
+      <label for="inputText" class="form-label"><strong>Enter Plain Description:</strong></label>
+      <textarea id="inputText" class="form-control" rows="5" placeholder="E.g. Airman led a team to fix aircraft..."></textarea>
+
+      <button class="btn btn-primary mt-3" onclick="generateBullet()">Generate Bullet</button>
+
+      <div class="mt-4">
+        <h5>Generated Air Force Bullet:</h5>
+        <div id="outputBullet" class="alert alert-secondary" role="alert">
+          Your bullet will appear here...
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function generateBullet() {
+      const input = document.getElementById("inputText").value;
+
+      // Dummy AI simulation – replace with GPT call
+      const bullet = simulateBullet(input);
+
+      document.getElementById("outputBullet").innerText = bullet;
+    }
+
+    function simulateBullet(text) {
+      // Simulate an Air Force-style bullet (action-impact-result)
+      if (!text.trim()) return "Please enter a description to generate a bullet.";
+
+      return `- ${text.charAt(0).toUpperCase() + text.slice(1).trim()} -- ensured mission readiness & exceeded operational goals`;
+    }
+  </script>
+
+</body>
+</html>
